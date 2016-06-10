@@ -47,16 +47,17 @@
 <p>Welcome to the generated API reference.</p>
 <h1>Available routes</h1>
 <h1>general</h1>
-<h2>Returns the authenticated user</h2>
+
+<h2>Display a listing of the fruits.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl "http://fruits.dev/api/authenticated_user" \
+<pre><code class="language-bash">curl "http://fruits.dev/api/fruits" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://fruits.dev/api/authenticated_user",
+    "url": "http://fruits.dev/api/fruits",
     "method": "GET",
         "headers": {
     "accept": "application/json"
@@ -69,10 +70,42 @@ console.log(response);
 <blockquote>
 <p>Example response:</p>
 </blockquote>
-<pre><code class="language-json">null</code></pre>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "name": "apple",
+        "color": "green",
+        "weight": "150",
+        "delicious": "1",
+        "created_at": "2016-06-06 17:59:00",
+        "updated_at": "2016-06-06 17:59:00"
+    },
+    {
+        "id": 2,
+        "name": "banana",
+        "color": "yellow",
+        "weight": "116",
+        "delicious": "1",
+        "created_at": "2016-06-06 17:59:00",
+        "updated_at": "2016-06-06 17:59:00"
+    },
+    {
+        "id": 3,
+        "name": "strawberries",
+        "color": "red",
+        "weight": "12",
+        "delicious": "1",
+        "created_at": "2016-06-06 17:59:00",
+        "updated_at": "2016-06-06 17:59:00"
+    }
+]</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET /api/authenticated_user</code></p>
-<p><code>HEAD /api/authenticated_user</code></p>
+<p><code>GET /api/fruits</code></p>
+<p><code>HEAD /api/fruits</code></p>
+
+
+
+
 <h2>Store a newly created fruit.</h2>
 <blockquote>
 <p>Example request:</p>
@@ -139,81 +172,7 @@ console.log(response);
 </tr>
 </tbody>
 </table>
-<h2>Remove the specified fruit.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl "http://fruits.dev/api/fruits/{id}" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://fruits.dev/api/fruits/{id}",
-    "method": "DELETE",
-        "headers": {
-    "accept": "application/json"
-    }
-}
 
-$.ajax(settings).done(function (response) {
-console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>DELETE /api/fruits/{id}</code></p>
-<h2>Display a listing of the fruits.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl "http://fruits.dev/api/fruits" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://fruits.dev/api/fruits",
-    "method": "GET",
-        "headers": {
-    "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-console.log(response);
-});</code></pre>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<pre><code class="language-json">[
-    {
-        "id": 1,
-        "name": "apple",
-        "color": "green",
-        "weight": "150",
-        "delicious": "1",
-        "created_at": "2016-06-06 17:59:00",
-        "updated_at": "2016-06-06 17:59:00"
-    },
-    {
-        "id": 2,
-        "name": "banana",
-        "color": "yellow",
-        "weight": "116",
-        "delicious": "1",
-        "created_at": "2016-06-06 17:59:00",
-        "updated_at": "2016-06-06 17:59:00"
-    },
-    {
-        "id": 3,
-        "name": "strawberries",
-        "color": "red",
-        "weight": "12",
-        "delicious": "1",
-        "created_at": "2016-06-06 17:59:00",
-        "updated_at": "2016-06-06 17:59:00"
-    }
-]</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET /api/fruits</code></p>
-<p><code>HEAD /api/fruits</code></p>
 <h2>Returns the specified fruit info.</h2>
 <blockquote>
 <p>Example request:</p>
@@ -248,6 +207,33 @@ console.log(response);
 <h3>HTTP Request</h3>
 <p><code>GET /api/fruit/{id}</code></p>
 <p><code>HEAD /api/fruit/{id}</code></p>
+
+<h2>Remove the specified fruit.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://fruits.dev/api/fruits/{id}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://fruits.dev/api/fruits/{id}",
+    "method": "DELETE",
+        "headers": {
+    "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /api/fruits/{id}</code></p>
+
+
+
+
+
 <h2>API Login, on success return JWT Auth token</h2>
 <blockquote>
 <p>Example request:</p>
@@ -269,6 +255,35 @@ console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST /api/authenticate</code></p>
+
+<h2>Returns the authenticated user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://fruits.dev/api/authenticated_user" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://fruits.dev/api/authenticated_user",
+    "method": "GET",
+        "headers": {
+    "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /api/authenticated_user</code></p>
+<p><code>HEAD /api/authenticated_user</code></p>
+
+
 <h2>Log out</h2>
 <p>Invalidate the token, so user cannot use it anymore
 They have to relogin to get a new token</p>

@@ -17,15 +17,14 @@ class FruitsTableSeeder extends Seeder
 
         DB::table('fruits')->delete();
 
-        $fruits = array(
+        $fruits = [
             ['name' => 'apple', 'color' => 'green', 'weight' => 150, 'delicious' => true],
             ['name' => 'banana', 'color' => 'yellow', 'weight' => 116, 'delicious' => true],
             ['name' => 'strawberries', 'color' => 'red', 'weight' => 12, 'delicious' => true],
-        );
+        ];
 
-        // Loop through each Fruit above and create the record for them in the database
-        foreach ($fruits as $fruit)
-        {
+        // Loop through fruits above and create the record in DB
+        foreach ($fruits as $fruit) {
             Fruit::create($fruit);
         }
 

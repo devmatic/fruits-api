@@ -13,6 +13,20 @@ class FruitsTest extends TestCase
     /**
      * @test
      *
+     * Test: GET /api.
+     */
+    public function it_praises_the_fruits()
+    {
+        $this->get('/api')
+            ->seeJson([
+                'Fruits' => 'Delicious and healthy!'
+            ]);
+    }
+
+
+    /**
+     * @test
+     *
      * Test: GET /api/fruits.
      */
     public function it_fetches_fruits()
